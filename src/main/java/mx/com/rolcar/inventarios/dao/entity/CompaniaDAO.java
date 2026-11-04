@@ -12,6 +12,7 @@ import org.json.simple.JSONValue;
 public class CompaniaDAO implements DatabaseRecord, DatabaseRecordABC {
     public String compania = "";
     public String razonsocial = "";
+    public String porubicacion = "";
     
     public CompaniaDAO() {
     }

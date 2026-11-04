@@ -131,7 +131,8 @@ function busquedaCompanias(texto, onComplete, onError) {
         title: "Companias",
         datafields: [
             {name: "compania", type: "string"},
-            {name: "razonsocial", type: "string"}
+            {name: "razonsocial", type: "string"},
+            {name: "porubicacion", type: "string"}
         ],
         columns: [
             {text: "Compa&ntilde;ia", datafield: "compania", width: "20%"},

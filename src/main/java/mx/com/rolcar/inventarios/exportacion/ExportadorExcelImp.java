@@ -16,6 +16,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mx.com.rolcar.inventarios.collection.AuditoriaInventariosCollection;
+import mx.com.rolcar.inventarios.dao.entity.CompaniaDAO;
 import mx.com.rolcar.inventarios.dao.entity.InventarioDetalleUbicacionDAO;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
@@ -458,97 +459,68 @@ public class ExportadorExcelImp implements ExportadorClass {
             throw new WebException("Solo se puede Finalizar el Inventario con el estado ["+Constantes.ESTADO_INVENTARIO_AFECTADO+"].");
         //
 
+        CompaniaDAO companiaDAO = new CompaniaDAO(inventarioDAO.compania);
+        if (!ds.exists(companiaDAO))
+            throw new WebException("No existe esta compania ["+companiaDAO+"].");
+
+
         //
         //
         //
 
-        /*
-        // Obtengo los registros de inventario por ubicacion
-        ArrayList<InventarioConteoUbicacionDAO> arrayU = ds.select(new InventarioConteoUbicacionDAO(), "flinventario = "+flinventario, "clave, ubicacion");
+        if (companiaDAO.porubicacion.compareTo("1")==0) {
 
-        try (ServletOutputStream out = response.getOutputStream()) {
-            out.println("Codigo,Descripcion,Costo,Cantidad,Ubicacion,Conteo");
+            // Obtengo los registros de inventario por ubicacion
+            ArrayList<InventarioConteoUbicacionDAO> array = ds.select(new InventarioConteoUbicacionDAO(),
+                    "flinventario = "+flinventario, "clave, ubicacion");
 
-            for(InventarioConteoUbicacionDAO inventarioConteoUbicacionDAO : arrayU) {
-                if (inventarioConteoUbicacionDAO.existencia==0.0)
-                    continue;
+            try (ServletOutputStream out = response.getOutputStream()) {
+                out.println("Codigo,Descripcion,Costo,Col_vacia,Cant_fisica,Cant_teorica,Domicilio_origen");
 
-                StringBuilder sb = new StringBuilder();
-                sb.append(inventarioConteoUbicacionDAO.clave).append(",");
-                if (inventarioConteoUbicacionDAO.descripcion.contains(","))
-                    sb.append("\"");
-                sb.append(inventarioConteoUbicacionDAO.descripcion);
-                if (inventarioConteoUbicacionDAO.descripcion.contains(","))
-                    sb.append("\"");
-                sb.append(",");
-                sb.append(inventarioConteoUbicacionDAO.precio).append(",");
-                sb.append((int)inventarioConteoUbicacionDAO.existenciainicial).append(",");
-                sb.append(inventarioConteoUbicacionDAO.ubicacion).append(",");
-                sb.append((int)inventarioConteoUbicacionDAO.existencia);
+                for(InventarioConteoUbicacionDAO inventarioConteoUbicacionDAO : array) {
 
-                out.println(sb.toString());
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(inventarioConteoUbicacionDAO.clave).append(",");
+                    String descripcion = inventarioConteoUbicacionDAO.noparte;
+                    String comillas = descripcion.contains(",") ? "\"" : "";
+                    sb.append(comillas).append(descripcion).append(comillas).append(",");
+                    sb.append(inventarioConteoUbicacionDAO.precio).append(",");
+                    sb.append("").append(",");
+                    sb.append(Numero.redondea(inventarioConteoUbicacionDAO.existencia)).append(",");
+                    sb.append(Numero.redondea(inventarioConteoUbicacionDAO.existenciainicial)).append(",");
+                    sb.append(inventarioConteoUbicacionDAO.ubicacion);
+
+                    out.println(sb.toString());
+                }
+            }
+
+        } else {
+
+            // Obtengo los registros de inventario, solo mando los que tienen diferencia
+            ArrayList<InventarioConteoDAO> array = ds.select(new InventarioConteoDAO(),
+                    "flinventario = "+flinventario
+                    +" AND existencia3 != existencia", "clave");
+
+            try (ServletOutputStream out = response.getOutputStream()) {
+                out.println("Codigo,Descripcion,Costo,Col_vacia,Cant_fisica,Cant_teorica,Domicilio_origen");
+
+                for(InventarioConteoDAO inventarioConteoDAO : array) {
+
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(inventarioConteoDAO.clave).append(",");
+                    String descripcion = inventarioConteoDAO.noparte;
+                    String comillas = descripcion.contains(",") ? "\"" : "";
+                    sb.append(comillas).append(descripcion).append(comillas).append(",");
+                    sb.append(inventarioConteoDAO.precio).append(",");
+                    sb.append("").append(",");
+                    sb.append(Numero.redondea(inventarioConteoDAO.existencia3)).append(",");
+                    sb.append(Numero.redondea(inventarioConteoDAO.existencia)).append(",");
+                    sb.append("00-00-000-0");
+
+                    out.println(sb.toString());
+                }
             }
         }
-        */
-
-        // Obtengo los registros de inventario por clave, se suma por clave para enviar la suma del conteo a la ubicacion inicial '00-00-000-0'
-        /*
-        ArrayList<DatabaseRecordEntity> array = ds.collection(
-                "SELECT clave, noparte, precio, existenciainicial, SUM(existencia) AS existencia "
-                +"FROM InventarioConteoUbicacion "
-                +"WHERE flinventario = "+flinventario+" "
-                +"GROUP BY clave, noparte, precio, existenciainicial "
-                +"ORDER BY clave;");
-
-        try (ServletOutputStream out = response.getOutputStream()) {
-            out.println("Codigo,Descripcion,Costo,Cantidad,Ubicacion,Conteo");
-
-            for(DatabaseRecordEntity record : array) {
-
-                StringBuilder sb = new StringBuilder();
-                sb.append(record.getString("clave")).append(",");
-                String noparte = record.getString("noparte");
-                if (noparte.contains(","))
-                    sb.append("\"");
-                sb.append(noparte);
-                if (noparte.contains(","))
-                    sb.append("\"");
-                sb.append(",");
-                sb.append(record.get("precio")).append(",");
-                sb.append((int)record.getDouble("existenciainicial")).append(",");
-                sb.append("00-00-000-0").append(",");
-                sb.append((int)record.getDouble("existencia"));
-
-                out.println(sb.toString());
-            }
-        }
-        */
-
-        // Obtengo los registros de inventario, solo mando los que tienen diferencia
-        ArrayList<InventarioConteoDAO> array = ds.select(new InventarioConteoDAO(),
-                "flinventario = "+flinventario
-                +" AND existencia3 != existencia", "clave");
-
-        try (ServletOutputStream out = response.getOutputStream()) {
-            out.println("Codigo,Descripcion,Costo,Col_vacia,Cant_fisica,Cant_teorica,Domicilio_origen");
-
-            for(InventarioConteoDAO inventarioConteoDAO : array) {
-
-                StringBuilder sb = new StringBuilder();
-                sb.append(inventarioConteoDAO.clave).append(",");
-                String descripcion = inventarioConteoDAO.noparte;
-                String comillas = descripcion.contains(",") ? "\"" : "";
-                sb.append(comillas).append(descripcion).append(comillas).append(",");
-                sb.append(inventarioConteoDAO.precio).append(",");
-                sb.append("").append(",");
-                sb.append(Numero.redondea(inventarioConteoDAO.existencia3)).append(",");
-                sb.append(Numero.redondea(inventarioConteoDAO.existencia)).append(",");
-                sb.append("00-00-000-0");
-
-                out.println(sb.toString());
-            }
-        }
-
     }
 
     public void exportaAuditoriaInventarios(HttpServletRequest request, HttpServletResponse response) throws Exception {
