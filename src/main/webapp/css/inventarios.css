@@ -1,0 +1,265 @@
+
+.form-signin {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+}
+.form-signin .checkbox {
+    font-weight: 400;
+}
+.form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin input[type="text"] {
+    margin-bottom: 0px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[name="usuario"] {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.puntero {
+    cursor: pointer;
+}
+
+.invisible {
+    display: none;
+    visibility: collapse;
+}
+.visible {
+    display: block;
+    visibility: visible;
+}
+.sort {
+    cursor: pointer;
+    background-image: url("/erp/img/sort.png");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.key-input {
+    width: 100px;
+    font-size: 10px;
+}
+
+.reporte {
+    width: 100%;
+    padding-bottom: 10px;
+}
+.reporte-button {
+    width: 100%;
+}
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+}
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 400px;
+    overflow-y: scroll;
+    background-color: #fff;
+}
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+}
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+
+figure.zoom {
+    background-position: 50% 50%;
+    position: relative;
+    width: 500px;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+figure.zoom img:hover {
+    opacity: 0;
+}
+figure.zoom img {
+    transition: opacity .5s;
+    display: block;
+    width: 100%;
+}
+
+.full_width {
+    width: 100%;
+}
+.half_width {
+    width: 50%;
+}
+.quarter_width {
+    width: 25%;
+}
+.forty_whith {
+    width: 40%;
+}
+.space-medium {
+    height: 5px;
+}
+.space {
+    height: 10px;
+}
+.space-double {
+    height: 20px;
+}
+.t_align_l {
+    text-align: left;
+}
+.t_align_c {
+    text-align: center;
+}
+.t_align_r {
+    text-align: right;
+}
+.v_align_b {
+    vertical-align: baseline;
+}
+.v_align_m {
+    vertical-align: middle;
+}
+.v_align_bottom {
+    vertical-align: bottom;
+}
+.f_size_extra_small {
+    font-size: .55em;
+}
+.f_size_small {
+    font-size: .75em;
+}
+.f_size_medium {
+    font-size: .9em;
+}
+.f_size_normal {
+    font-size: 1em;
+}
+.f_size_large {
+    font-size: 1.15em;
+}
+.f_size_ex_large {
+    font-size: 1.25em;
+}
+.f_size_big {
+    font-size: 1.7em;
+}
+.f_size_extra_big {
+    font-size: 2em;
+}
+
+.f_weight_normal {
+    font-weight: normal;
+}
+.f_weight_bold {
+    font-weight: bold;
+}
+.f_weight_thicker {
+    font-weight: 900;
+}
+.divider {
+    border-bottom: 1px solid #ddd;
+}
+.text_overflow_width {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.label-div {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.label {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.ventas-items:hover {
+    /*background-color: #e9e9e9;*/
+}
+.row-header {
+    color: black;
+    background-color: #e8e8e8;
+}
+.row-selected {
+    color: black;
+    background-color: #81e2fc;
+}
+
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
+
+.row-green {
+    color: black;
+    background-color: #e7fcb1;
+}
+.row-yellow {
+    color: black;
+    background-color: #f6fcb1;
+}
+.row-red {
+    color: black;
+    background-color: #ffb3b3;
+}
+.row-blue {
+    color: black;
+    background-color: #b5eeff;
+}
+.row-green:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .green:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+    color: black;
+    background-color: #e7fcb1;
+}
+.row-yellow:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .yellow:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+    color: black;
+    background-color: #f6fcb1;
+}
+.row-red:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .red:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+    color: black;
+    background-color: #ffb3b3;
+}
+.row-blue:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .red:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+    color: black;
+    background-color: #b5eeff;
+}
+
+/*
+*
+* Pruebas
+*
+*/

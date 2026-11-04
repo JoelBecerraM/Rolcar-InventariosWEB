@@ -1,0 +1,41 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" id="navTop">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerHeader" 
+            aria-controls="navbarTogglerHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/inventarios">
+        <img alt="logo" src="/inventarios/img/logo-sm.png" style="width: 50px;">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarTogglerHeader">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Principal</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inventarios</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" onclick="inventarios();">Inventarios</a>
+                    <a class="dropdown-item" onclick="analisisInventarios();">An&aacute;lisis</a>
+                    <a class="dropdown-item" onclick="auditoriaInventarios();">Auditoria</a>
+                    <!-- div class="dropdown-divider"></div>
+                    <a class="dropdown-item" onclick="surtido();">Surtido</a>
+                    <a class="dropdown-item" onclick="recepcion();">Recepci&oacute;n de Mercanc&iacute;a</a -->
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Catalogos</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" onclick="catalogoCompanias();">Companias</a>
+                    <a class="dropdown-item" onclick="catalogoUsuarios();">Usuarios</a>
+                    <a class="dropdown-item" onclick="catalogoPerfiles();">Perfiles</a>
+                    <a class="dropdown-item" onclick="catalogoPermisos();">Permisos</a>
+                </div>
+            </li>        </ul>
+        <div class="navbar-right">
+            <span class="text-sm-left"><%=usuario.nombre%>@<%=usuario.razonsocial%> [<%=usuario.compania%>]</span>&nbsp;
+            <button type="button" class="btn btn-sm btn-outline-primary" onclick="cerrarSesion();">
+                <span class="fa fa-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Cerrar Sesi&oacute;n
+            </button>
+        </div>
+    </div>
+</nav>

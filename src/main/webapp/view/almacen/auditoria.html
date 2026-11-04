@@ -1,0 +1,114 @@
+
+<div class="container">
+    <div id="titulo">
+        <h2>Auditoria de Inventarios</h2>
+        <p class="lead">Datos para la auditoria de inventarios.</p>
+    </div>
+    <div class="row" id="inventario">
+        <div class="col-md-12 order-md-1">
+            <form id="form-inventario" class="needs-validation" novalidate>
+                <h4 class="mb-3">Inventario</h4>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="flinventario">Folio</label>
+                        <div class="input-group invalid">
+                            <div class="input-group-prepend">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" id="btn-buscar-flinventario">
+                                    <span class="fa fa-search" aria-hidden="true"></span>&nbsp;Buscar
+                                </button>
+                            </div>
+                            <input type="text" class="form-control" name="flinventario" placeholder="" readonly value="">
+                            <div class="invalid-feedback">
+                                El <strong>folio</strong> no puede estar vac&iacute;o.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="almacen">Almac&eacute;n</label>
+                        <input type="text" class="form-control" name="almacen" placeholder="" readonly value="">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="descripcion">Descripci&oacute;n</label>
+                        <input type="text" class="form-control" name="descripcion" placeholder="" readonly value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="feinicio">Inicio</label>
+                        <input type="text" class="form-control" name="feinicio" placeholder="" readonly value="">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="fetermino">Termino</label>
+                        <input type="text" class="form-control" name="fetermino" placeholder="" readonly value="">
+                    </div>
+                    <div class="col-md-1">
+                        <label for="status">Status</label>
+                        <input type="text" class="form-control" name="status" placeholder="" readonly value="">
+                    </div>
+                    <div class="col-md-1">
+                        <label for="fase">Fase</label>
+                        <input type="text" class="form-control" name="fase" placeholder="" readonly value="">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="fetermino">F.Fase</label>
+                        <input type="text" class="form-control" name="fefase" placeholder="" readonly value="">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="space"></div>
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <h4 class="mb-3">Capturas</h4>
+            <div class="row">
+                <div class="col-sm-12" id="productos">
+                </div>
+            </div>
+            <div class="space-medium"></div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <form id="analisis-totales">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <button class="btn btn-outline-primary" id="btn-reporte"
+                                    onclick="reporteAuditoriaInventarios(); return false;">
+                                    <span class="fa fa-dashboard"></span> Reporte
+                                </button>
+                            </div>
+                            <!-- div class="col-sm-3">
+                                <button class="btn btn-outline-primary" id="btn-analiza"
+                                    onclick="mandaAnalizar(); return false;">
+                                    <span class="fa fa-pencil"></span> Analizar
+                                </button>
+                            </div -->
+                            <!-- div class="col-sm-2">
+                                En Análisis:
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control row-green" style="text-align: right;" name="tanalizando" readonly>
+                            </div -->
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row pull-right">
+                        <div class="col-sm-12">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-outline-primary" id="btn-refresh"
+                                    onclick="actualizaDatos(); return false;">
+                                    <span class="fa fa-refresh"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="space"></div>
+    <div class="space"></div>
+    <div id="notificacion">
+        Listo.
+    </div>
+</div>

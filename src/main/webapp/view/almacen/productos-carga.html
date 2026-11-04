@@ -1,0 +1,24 @@
+
+<div class="container">
+    <div id="titulo">
+        <p class="lead">Seleccione el archivo que contiene los productos que quiere cargar al inventario.</p>
+    </div>    
+    <div class="row" id="inventario">
+        <div class="col-md-12 order-md-1">
+            <form id="form-carga" class="needs-validation" novalidate action="/inventarios/CargaInventario">
+                <input type="hidden" id="cargaflinventario" name="cargaflinventario">
+                <h4 class="mb-3">Archivo de Productos</h4>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="archivo">Archivo</label>
+                        <input type="file" class="form-control" id="archivo" name="archivo" required>
+                        <div class="invalid-feedback">
+                            El <strong>archivo</strong> es requerido.
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>    
+</div>
+

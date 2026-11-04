@@ -1,0 +1,356 @@
+
+<div class="container">
+    <div id="titulo">
+        <h2>Inventarios</h2>
+        <p class="lead">Datos para el registro de inventarios.</p>
+    </div>
+    <div class="row" id="inicia">
+        <div class="col-md-12 order-md-1">
+            <form id="form-inicia" class="needs-validation" novalidate>
+                <h4 class="mb-3">Iniciar Inventario</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-inicia-inventario"
+                                        onclick="iniciaInventario(); return false;">
+                                        <span class="fa fa-plus"></span> Inicia Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="space"></div>
+    <div class="row" id="inventario">
+        <div class="col-md-12 order-md-1">
+            <form id="form-inventario" class="needs-validation" novalidate>
+                <h4 class="mb-3">Inventario</h4>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="flinventario">Folio</label>
+                        <input type="text" class="form-control" name="flinventario" placeholder="" value="">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="almacen">Almac&eacute;n</label>
+                        <input type="text" class="form-control" name="almacen" placeholder="" value="">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="descripcion">Descripci&oacute;n</label>
+                        <input type="text" class="form-control" name="descripcion" placeholder="" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="feinicio">Inicio</label>
+                        <input type="text" class="form-control" name="feinicio" placeholder="" value="">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="fetermino">Termino</label>
+                        <input type="text" class="form-control" name="fetermino" placeholder="" value="">
+                    </div>
+                    <div class="col-md-1">
+                        <label for="status">Status</label>
+                        <input type="text" class="form-control" name="status" placeholder="" value="">
+                    </div>
+                    <div class="col-md-1">
+                        <label for="fase">Fase</label>
+                        <input type="text" class="form-control" name="fase" placeholder="" value="">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="fetermino">F.Fase</label>
+                        <input type="text" class="form-control" name="fefase" placeholder="" value="">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="space"></div>
+    <div class="row" id="productos">
+        <div class="col-md-12 order-md-1">
+            <form id="form-productos" class="needs-validation" novalidate>
+                <h4 class="mb-3">Productos</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-carga-productos"
+                                        onclick="cargaProductos(); return false;">
+                                        <span class="fa fa-upload"></span> Cargar Productos
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-valuacion-inventario"
+                                        onclick="valuacionInventario(); return false;">
+                                        <span class="fa fa-money"></span> Valuaci&oacute;n Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-habilita-1er-conteo"
+                                        onclick="activaPrimerConteo(); return false;">
+                                        <span class="fa fa-archive"></span> Habilita 1er Conteo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="space"></div>
+    <div class="row" id="1er-conteo">
+        <div class="col-md-12 order-md-1">
+            <form id="form-1er-conteo" class="needs-validation" novalidate>
+                <h4 class="mb-3">1er Conteo</h4>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-valuacion-1er-conteo"
+                                        onclick="valuacionInventarioConteo(1); return false;">
+                                        <span class="fa fa-money"></span> Valuaci&oacute;n Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-diferencias-1er-conteo"
+                                        onclick="diferenciasInventarioConteo(1); return false;">
+                                        <span class="fa fa-minus-square"></span> Diferencias Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-analisis-1er-conteo"
+                                        onclick="analisisInventarioConteo(1); return false;">
+                                        <span class="fa fa-dashboard"></span> An&aacute;lisis Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-habilita-2do-conteo"
+                                        onclick="activaSegundoConteo(); return false;">
+                                        <span class="fa fa-archive"></span> Habilita 2do Conteo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="space"></div>
+    <div class="row" id="2do-conteo">
+        <div class="col-md-12 order-md-1">
+            <form id="form-2do-conteo" class="needs-validation" novalidate>
+                <h4 class="mb-3">2do Conteo</h4>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-valuacion-2do-conteo"
+                                        onclick="valuacionInventarioConteo(2); return false;">
+                                        <span class="fa fa-money"></span> Valuaci&oacute;n Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-diferencias-2do-conteo"
+                                        onclick="diferenciasInventarioConteo(2); return false;">
+                                        <span class="fa fa-minus-square"></span> Diferencias Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-analisis-2do-conteo"
+                                        onclick="analisisInventarioConteo(2); return false;">
+                                        <span class="fa fa-dashboard"></span> An&aacute;lisis Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-habilita-3er-conteo"
+                                        onclick="activaTercerConteo(); return false;">
+                                        <span class="fa fa-archive"></span> Habilita 3er Conteo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="space"></div>
+    <div class="row" id="3er-conteo">
+        <div class="col-md-12 order-md-1">
+            <form id="form-3er-conteo" class="needs-validation" novalidate>
+                <h4 class="mb-3">3er Conteo</h4>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-valuacion-3er-conteo"
+                                        onclick="valuacionInventarioConteo(3); return false;">
+                                        <span class="fa fa-money"></span> Valuaci&oacute;n Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-diferencias-3er-conteo"
+                                        onclick="diferenciasInventarioConteo(3); return false;">
+                                        <span class="fa fa-minus-square"></span> Diferencias Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-analisis-3er-conteo"
+                                        onclick="analisisInventarioConteo(3); return false;">
+                                        <span class="fa fa-dashboard"></span> An&aacute;lisis Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-afecta-existencias"
+                                        onclick="afectaExistencias(); return false;">
+                                        <span class="fa fa-check-circle-o"></span> Afecta Existencias
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="space"></div>
+    <div class="row" id="termina">
+        <div class="col-md-12 order-md-1">
+            <form id="form-termina" class="needs-validation" novalidate>
+                <h4 class="mb-3">Termina Inventario</h4>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-termina-inventario"
+                                        onclick="valuacionInventarioConteo(3); return false;">
+                                        <span class="fa fa-money"></span> Valuaci&oacute;n Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-termina-diferencias"
+                                        onclick="diferenciasInventarioConteo(3); return false;">
+                                        <span class="fa fa-minus-square"></span> Diferencias Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-archivo-inventario"
+                                        onclick="archivoInventario(); return false;">
+                                        <span class="fa fa-file"></span> Archivo de Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="btn-finaliza-inventario"
+                                        onclick="finalizaInventario(); return false;">
+                                        <span class="fa fa-list-ul"></span> Finaliza Inventario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="space"></div>
+    <div class="space"></div>
+    <div id="notificacion">
+        Listo.
+    </div>
+</div>
+

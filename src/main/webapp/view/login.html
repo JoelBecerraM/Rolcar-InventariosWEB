@@ -1,0 +1,33 @@
+<form class="form-signin needs-validation" id="form-login" novalidate>
+    <div style="text-align: center; width: 100%;">
+        <img alt="logo" src="/inventarios/img/logo.png" style="width: 90%;">
+    </div>
+    <div style="height: 10px;"></div>
+    <div>
+        <h4 class="mb-3 font-weight-normal">Por favor inicie sesi&oacute;n</h4>
+    </div>
+    <div class="login">
+        <label class="sr-only">Compa&ntilde;ia</label>
+        <select class="form-control" name="compania">
+            <option value="">-- Seleccione</option>
+        </select>
+        <label class="sr-only">Usuario</label>
+        <input type="text" name="usuario" class="form-control" placeholder="Usuario" required autofocus>
+        <label class="sr-only">Contrase&ntilde;a</label>
+        <input type="password" name="password" class="form-control" placeholder="Contrase&ntilde;a" required data-eye>
+    </div>
+    <div class="espacio"></div>
+    <div style="text-align: left; width: 100%;">
+        <input type="checkbox" name="recordar">&nbsp;&nbsp;Recordar mi usuario
+    </div>
+    <div style="height: 10px;"></div>
+    <div>
+        <button class="btn btn-lg btn-outline-primary btn-block" onclick="iniciaSesion(); return false;">
+            <span class="fa fa-user"></span>&nbsp;&nbsp;Iniciar Sesi&oacute;n
+        </button>
+    </div>
+    <div style="height: 10px;"></div>
+    <div style="text-align: center; width: 100%;">
+        <span class="mt-5 mb-3 text-muted">&copy; 2018 - 2026</span>
+    </div>
+</form>

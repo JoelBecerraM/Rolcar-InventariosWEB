@@ -1,0 +1,4 @@
+#/bin/bash
+
+/usr/local/mysql/bin/mysql -u syda -psY%_3srew inventarios < inventarios-web.ddl
+

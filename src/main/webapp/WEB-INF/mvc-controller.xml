@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+    <command id="IniciaSesion" name="Inicia Sesion">
+        <class-name>mx.com.rolcar.inventarios.command.IniciaSesionCommand</class-name>
+        <session-less>true</session-less>
+        <content-type>application/json</content-type>
+    </command>
+    <command id="RecuperarPassword" name="Recupera la Contraseña del Cliente">
+        <class-name>mx.com.rolcar.inventarios.command.RecuperarPasswordCommand</class-name>
+        <session-less>true</session-less>
+        <content-type>application/json</content-type>
+    </command>
+    <command id="TerminaInventario" name="Termina el Inventario">
+        <class-name>mx.com.rolcar.inventarios.command.TerminaInventarioCommand</class-name>
+        <session-less>true</session-less>
+        <content-type>application/json</content-type>
+    </command>
+    <command id="TerminaAnalisisInventario" name="Termina el Analisis de Inventario">
+        <class-name>mx.com.rolcar.inventarios.command.TerminaAnalisisInventarioCommand</class-name>
+        <session-less>true</session-less>
+        <content-type>application/json</content-type>
+    </command>
+    <command id="ValidaTerminalInventario" name="Valida la Terminal del Inventario">
+        <class-name>mx.com.rolcar.inventarios.command.ValidaTerminalInventarioCommand</class-name>
+        <content-type>application/json</content-type>
+    </command>
+    <command id="AnalizaProductosInventario" name="Analiza los Productos del Inventario">
+        <class-name>mx.com.rolcar.inventarios.command.AnalizaProductosInventarioCommand</class-name>
+        <content-type>application/json</content-type>
+    </command>
+    <command id="ListaAnalisisInventario" name="Lista el Analisis de Inventario ">
+        <class-name>mx.com.rolcar.inventarios.command.ListaAnalisisInventarioCommand</class-name>
+        <session-less>true</session-less>
+        <content-type>application/json</content-type>
+    </command>
+
+    <!-- -->
+    <command id="Registro" name="Obtiene el registro">
+        <class-name>com.atcloud.web.command.RegistroCommand</class-name>
+        <content-type>application/json</content-type>
+    </command>
+    <command id="Catalogos" name="Obtiene los registros de Catalogos">
+        <class-name>com.atcloud.web.command.CatalogosCommand</class-name>
+        <content-type>application/json</content-type>
+    </command>
+    <command id="MaestroDetalle" name="Obtiene los registros de Maestro Detalle">
+        <class-name>com.atcloud.web.command.MaestroDetalleCommand</class-name>
+        <content-type>application/json</content-type>
+    </command>
+    <command id="Lista" name="Obtiene una Lista de Registros">
+        <class-name>com.atcloud.web.command.ListaCommand</class-name>
+        <session-less>true</session-less>
+        <content-type>application/json</content-type>
+    </command>
+    <command id="Coleccion" name="Obtiene una Coleccion">
+        <class-name>com.atcloud.web.command.ColeccionCommand</class-name>
+        <content-type>application/json</content-type>
+    </command>
+    <command id="Accion" name="Ejecuta una Accion">
+        <class-name>com.atcloud.web.command.AccionCommand</class-name>
+        <content-type>application/json</content-type>
+    </command>
+</commands>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<responses>
+    <!--
+    - fechaUltimaSincronizacion
+    -->
+    <response name="fechaUltimaSincronizacion">
+        <param name="compania"/>
+        <param name="usuario"/>
+
+        <bussines-method className="mx.com.rolcar.inventarios.business.ResponseServices"
+            method="actualizaFechaUltimaSincronizacion">
+            <bussines-param no="1" value="${compania}" classType="java.lang.String"/>
+            <bussines-param no="2" value="${usuario}" classType="java.lang.String"/>
+        </bussines-method>
+    </response>
+    <!--
+    - dispositivo
+    -->
+    <response name="dispositivo">
+        <param name="compania"/>
+        <param name="usuario"/>
+        <param name="serie"/>
+        <param name="numero"/>
+        <param name="sim"/>
+        <param name="imei" defvalue=""/>
+        <param name="version" defvalue=""/>
+
+        <bussines-method className="mx.com.rolcar.inventarios.business.ResponseServices"
+            method="actualizaDispositivo">
+            <bussines-param no="1" value="${compania}" classType="java.lang.String"/>
+            <bussines-param no="2" value="${usuario}" classType="java.lang.String"/>
+            <bussines-param no="3" value="${serie}" classType="java.lang.String"/>
+            <bussines-param no="4" value="${numero}" classType="java.lang.String"/>
+            <bussines-param no="5" value="${sim}" classType="java.lang.String"/>
+            <bussines-param no="6" value="${imei}" classType="java.lang.String"/>
+            <bussines-param no="7" value="${version}" classType="java.lang.String"/>
+        </bussines-method>
+    </response>
+    <!--
+    - token
+    -->
+    <response name="token">
+        <param name="compania"/>
+        <param name="usuario"/>
+        <param name="token"/>
+
+        <bussines-method className="mx.com.rolcar.inventarios.business.ResponseServices"
+            method="actualizaToken">
+            <bussines-param no="1" value="${compania}" classType="java.lang.String"/>
+            <bussines-param no="2" value="${usuario}" classType="java.lang.String"/>
+            <bussines-param no="3" value="${token}" classType="java.lang.String"/>
+        </bussines-method>
+    </response>
+    <!--
+    - parametros
+    -->
+    <response name="parametros">
+        <param name="compania"/>
+        <param name="usuario"/>
+
+        <query sql="SELECT parametro, valor, activo
+            FROM Parametro
+            WHERE compania = '${compania}'
+            UNION
+            SELECT parametro, valor, activo
+            FROM ParametroUsuario
+            WHERE compania = '${compania}' AND usuario = '${usuario}'"
+            column-separator="|">
+            <query-column no="01" value-of="1"/>
+            <query-column no="02" value-of="2"/>
+            <query-column no="03" value-of="3"/>
+        </query>
+    </response>
+    <!--
+    - sentencias
+    -->
+    <response name="sentencias">
+        <param name="compania"/>
+        <param name="usuario"/>
+
+        <query sql="SELECT sentencia
+            FROM SentenciaSQL
+            WHERE compania = '${compania}' AND usuario = '${usuario}'
+            ORDER BY orden"
+            column-separator="|">
+            <query-column no="01" value-of="1"/>
+        </query>
+    </response>
+    <!--
+    - version
+    -->
+    <response name="version">
+        <param name="compania"/>
+        <param name="usuario"/>
+
+        <query sql="SELECT version, fecha
+            FROM VersionUsuario
+            WHERE compania = '${compania}'
+            AND usuario IN ('*', '${usuario}')
+            ORDER BY usuario DESC
+            LIMIT 1"
+            column-separator="|">
+            <query-column no="01" value-of="1"/>
+            <query-column no="02" value-of="2"/>
+        </query>
+    </response>
+    <!--
+    - versionCambios
+    -->
+    <response name="versionCambios">
+        <param name="version"/>
+        <param name="compania"/>
+        <param name="usuario"/>
+
+        <query sql="SELECT sentencia
+            FROM VersionSQL
+            WHERE version >= '${version}'
+            ORDER BY version, orden"
+            column-separator="|">
+            <query-column no="01" value-of="1"/>
+        </query>
+    </response>
+    <!--
+    - clientes
+    -->
+    <response name="clientes">
+        <param name="compania"/>
+        <param name="usuario"/>
+
+        <query sql="SELECT cliente, status, nombre, rfc
+            FROM Cliente
+            WHERE compania = '${compania}'"
+            column-separator="|">
+            <query-column no="01" value-of="1"/>
+            <query-column no="02" value-of="2"/>
+            <query-column no="03" value-of="3"/>
+            <query-column no="04" value-of="4"/>
+        </query>
+    </response>
+    <!--
+    - ubicaciones
+    -->
+    <response name="ubicaciones">
+        <param name="compania"/>
+        <param name="usuario"/>
+
+        <query sql="SELECT ubicacion, descripcion
+            FROM Ubicacion
+            WHERE compania = '${compania}'"
+            column-separator="|">
+            <query-column no="01" value-of="1"/>
+            <query-column no="02" value-of="2"/>
+        </query>
+    </response>
+    <!--
+    - aplicaciones
+    -->
+    <response name="aplicaciones">
+        <param name="compania"/>
+        <param name="usuario"/>
+
+        <query sql="
+            SELECT codigo, aplicacion
+            FROM Aplicacion
+            WHERE compania = ''
+            UNION
+            SELECT codigo, aplicacion
+            FROM Aplicacion
+            WHERE compania = '${compania}'"
+            column-separator="|">
+            <query-column no="01" value-of="1"/>
+            <query-column no="02" value-of="2"/>
+        </query>
+    </response>
+    <!--
+    - codigos
+    -->
+    <response name="codigos">
+        <param name="compania"/>
+        <param name="usuario"/>
+
+        <query sql="
+            SELECT codigo, clave
+            FROM Codigo
+            WHERE compania = ''
+            UNION
+            SELECT codigo, clave
+            FROM Codigo
+            WHERE compania = '${compania}'"
+            column-separator="|">
+            <query-column no="01" value-of="1"/>
+            <query-column no="02" value-of="2"/>
+        </query>
+    </response>
+    <!--
+    - productos
+    -->
+    <response name="productos">
+        <param name="compania"/>
+        <param name="usuario"/>
+
+        <query sql="SELECT clave, descripcion, precio, numero
+            FROM Producto
+            WHERE compania = '${compania}'"
+            column-separator="|">
+            <query-column no="01" value-of="1"/>
+            <query-column no="02" value-of="2"/>
+            <query-column no="03" value-of="3"/>
+            <query-column no="04" value-of="4"/>
+        </query>
+    </response>
+</responses>

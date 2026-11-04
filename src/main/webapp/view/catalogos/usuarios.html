@@ -1,0 +1,101 @@
+
+<div class="container">
+    <div id="titulo">
+        <h2>Usuarios</h2>
+        <p class="lead">Datos para el registro de Usuarios.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <form id="datos" class="needs-validation" novalidate>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Usuario</label>
+                        <div class="input-group invalid">
+                            <div class="input-group-prepend">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" id="btn-buscar">
+                                    <span class="fa fa-search" aria-hidden="true"></span>&nbsp;Buscar
+                                </button>
+                            </div>
+                            <input type="text" class="form-control" name="usuario"  placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                El <strong>usuario</strong> no puede estar vac&iacute;o.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Contrase&ntilde;a</label>
+                        <input type="password" class="form-control" name="password" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            El <strong>password</strong> no puede estar vacio.
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Perfil</label>
+                        <select class="form-control" name="perfil" required>
+                        </select>
+                        <div class="invalid-feedback">
+                            La clave de <strong>perfil</strong> es requerida.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control text-uppercase" name="nombre" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            El <strong>nombre</strong> es requerido.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <label>Email</label>
+                        <input type="text" class="form-control" name="email" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            El <strong>email</strong> es requerido.
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Estado</label>
+                        <select class="form-control" name="estado" required>
+                            <option value="A">Activo</option>
+                            <option value="B">Baja</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            El <strong>estado</strong> es requerido.
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="space"></div>
+                <div class="row" id="comandos">
+                    <div class="col-md-12">
+                        <div class="row pull-right">
+                            <div class="col-sm-12">
+                                <div>
+                                    <button type="button" class="btn btn-outline-primary" id="btn-regresar" onclick="window.history.back();">
+                                        <span class="fa fa-step-backward" aria-hidden="true"></span>&nbsp;Regresar
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary" id="btn-limpiar">
+                                        <span class="fa fa-eraser" aria-hidden="true"></span>&nbsp;Limpiar
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary" id="btn-guardar">
+                                        <span class="fa fa-save" aria-hidden="true"></span>&nbsp;Guardar
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary" id="btn-borrar">
+                                        <span class="fa fa-remove" aria-hidden="true"></span>&nbsp;Borrar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div id="notificacion">
+                    Listo.
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,55 @@
+
+<div class="container">
+    <div id="titulo">
+        <h2>Permisos</h2>
+        <p class="lead">Roles de Usuario para cada Permiso.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <h4 class="mb-3">Permisos</h4>
+            <div class="row">
+                <div class="col-sm-6" id="permisos">
+                </div>
+                <div class="col-sm-6" id="roles">
+                </div>
+            </div>
+            <div class="space-medium"></div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-outline-primary" id="btn-agrega-registro"
+                                    onclick="agregaRegistroPermiso(); return false;">
+                                    <span class="fa fa-plus"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row pull-right">
+                        <div class="col-sm-12">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-outline-primary" id="btn-quita"
+                                    onclick="quitaPermiso(); return false;">
+                                    <span class="fa fa-minus"></span>
+                                </button>
+                                <button class="btn btn-outline-primary" id="btn-agrega"
+                                    onclick="agregaPermiso(); return false;">
+                                    <span class="fa fa-plus"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="space"></div>
+            <div id="notificacion">
+                Listo.
+            </div>
+        </div>
+    </div>
+</div>
+

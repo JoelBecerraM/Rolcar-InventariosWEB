@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/inventarios">
+    <Resource name="jdbc/inventarios" auth="Container" type="javax.sql.DataSource"
+        maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+        username="rolcar" password="R0lc4r_%" driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://db:3306/inventarios?autoReconnect=true&amp;allowPublicKeyRetrieval=true&amp;verifyServerCertificate=false&amp;useSSL=false"/>
+</Context>
